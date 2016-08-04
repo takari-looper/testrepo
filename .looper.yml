@@ -1,0 +1,16 @@
+language: workflow
+node_js: 4.2.1
+npm: 2.1.4
+flows:
+  master:
+    - parallel:
+      - (on master) ping 127.0.0.1 -n 20
+      - |
+        (on centos)
+        #!/bin/bash -xe
+        env
+        npm --version
+        node --version
+    - (on master) echo done
+  pr:
+    - call: master
