@@ -5,9 +5,10 @@ flows:
   master:
     - parallel:
       - (on master) ping 127.0.0.1 -n 60
-      - (on centos):
-          #!/bin/bash -xe
-          env
-          npm --version
-          node --version
+      - |
+        (on centos)
+        #!/bin/bash -xe
+        env
+        npm --version
+        node --version
     - (on master) echo done
