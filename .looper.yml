@@ -4,7 +4,7 @@ npm: 2.1.4
 flows:
   master:
     - parallel:
-      - (on master) ping 127.0.0.1 -n 60
+      - (on master) ping 127.0.0.1 -n 20
       - |
         (on centos)
         #!/bin/bash -xe
