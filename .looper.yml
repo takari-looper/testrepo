@@ -12,3 +12,5 @@ flows:
         npm --version
         node --version
     - (on master) echo done
+  pr:
+    - call: master
