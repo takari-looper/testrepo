@@ -17,6 +17,7 @@ flows:
         RED=$'\e[0;31m'
         NC=$'\e[0m' # No Color
         printf "Ansi ${RED}color${NC} test\n"
+        exit 123
     - (on master) echo done
   pr:
     - call: master
