@@ -11,13 +11,13 @@ flows:
       - |
         (on centos)
         #!/bin/bash -xe
-        env
-        npm --version
-        node --version
         RED=$'\e[0;31m'
         NC=$'\e[0m' # No Color
-        printf "Ansi ${RED}color${NC} test\n"
-        exit 123
+        for i in {1..20}
+        do
+          printf "Ansi ${RED}color${NC} test\n"
+          sleep 3
+        done
     - (on master) echo done
   pr:
     - call: master
