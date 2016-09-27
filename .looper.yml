@@ -3,7 +3,7 @@ node_js: 4.2.1
 npm: 2.1.4
 tools:
   ant: 1.9.7
-  jdk: 1.8.0_77-b03
+  jdk: 1.8.0_102-b14
 flows:
   master:
     - parallel:
