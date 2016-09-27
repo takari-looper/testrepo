@@ -11,6 +11,5 @@ flows:
         (on centos)
         #!/bin/bash -xe
         ant -version
-    - (on master) echo done
   pr:
     - call: master
