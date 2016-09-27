@@ -11,7 +11,7 @@ flows:
       - |
         (on centos)
         #!/bin/bash -xe
-        ant build
+        ant -v
     - (on master) echo done
   pr:
     - call: master
