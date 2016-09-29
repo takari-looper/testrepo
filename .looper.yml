@@ -9,5 +9,12 @@ flows:
         #!/bin/bash -xe
         java -version
         ant -version
+      - sleep 20
+      - |
+        (on centos)
+        sleep 10
+        sleep 10
+        sleep 10
+        sleep 10
   pr:
     - call: master
