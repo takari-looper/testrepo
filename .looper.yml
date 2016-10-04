@@ -1,19 +1,12 @@
 tools:
-  ant: 1.9.7
+  maven: 3.3.9
   jdk: 1.8.0_102-b14
 flows:
   master:
-    - parallel:
-      - |
-        (on centos)
-        #!/bin/bash -xe
-        java -version
-        ant -version
-      - |
-        (on centos)
-        sleep 10
-        sleep 10
-        sleep 10
-        sleep 10
+    - ws_snapshot: main
+      excludes: target/**
+    - (on centos):
+      - ws_restore: main
+      - mvn clean package -B
   pr:
     - call: master
