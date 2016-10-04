@@ -1,12 +1,17 @@
 tools:
   maven: 3.3.9
   jdk: 1.8.0_102-b14
+envs:
+  global:
+    variables:
+      test: Hello random ${Math.abs(new Random().nextInt()) % 100000000 + 1}
 flows:
   master:
     - ws_snapshot: main
       excludes: target/**
     - (on centos):
       - ws_restore: main
+      - echo ${test}
       - mvn clean package -B
   pr:
     - call: master
