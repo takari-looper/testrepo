@@ -4,7 +4,7 @@ tools:
 envs:
   global:
     variables:
-      test: Hello random %{((int)Math.abs(new java.util.Random().nextInt())) % 100000000 + 1}
+      test: Hello random %{Math.random(10000000, 9999999999)}
 flows:
   master:
     - ws_snapshot: main
