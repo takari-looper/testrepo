@@ -10,7 +10,7 @@ flows:
     - ws_snapshot: main
       excludes: target/**
     - parallel:
-      - (on centos) sleep 10
+      - (on centos, noWorkspace) sleep 10
       - (on centos, exclusive):
         - ws_restore: main
         - echo ${test}
