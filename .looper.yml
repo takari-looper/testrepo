@@ -10,10 +10,10 @@ flows:
     - ws_snapshot: main
       excludes: target/**
     - parallel:
-      - (on centos, noWorkspace) sleep 10
       - (on centos, exclusive):
         - ws_restore: main
         - echo ${test}
         - mvn clean package -B
+      - (on centos, noWorkspace) sleep 10
   pr:
     - call: master
