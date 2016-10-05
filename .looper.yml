@@ -8,8 +8,8 @@ envs:
 flows:
   master:
     - parallel:
-      - (on centos) sleep 5
-      - (on centos) sleep 5
+      - (on centos, noWorkspace) sleep 10
+      - (on centos, noWorkspace) sleep 10
     - ws_snapshot: main
       excludes: target/**
     - parallel:
