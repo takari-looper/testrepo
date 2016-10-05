@@ -9,9 +9,11 @@ flows:
   master:
     - ws_snapshot: main
       excludes: target/**
-    - (on centos):
-      - ws_restore: main
-      - echo ${test}
-      - mvn clean package -B
+    - parallel:
+      - (on centos) sleep 10
+      - (on centos, exclusive):
+        - ws_restore: main
+        - echo ${test}
+        - mvn clean package -B
   pr:
     - call: master
