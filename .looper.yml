@@ -10,6 +10,7 @@ flows:
     - parallel:
       - (on master) ping localhost -n 30
       - (on centos) sleep 50
+      - job: nested
 #    - parallel:
 #      - (on centos, noWorkspace) sleep 10
 #      - (on centos, noWorkspace) sleep 10
