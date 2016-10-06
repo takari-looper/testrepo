@@ -8,7 +8,7 @@ envs:
 flows:
   master:
     - parallel:
-      - (on master) sleep 30
+      - (on master) ping localhost -n 30
       - (on centos) sleep 50
 #    - parallel:
 #      - (on centos, noWorkspace) sleep 10
