@@ -1,16 +1,26 @@
-language: workflow
-node_js: 4.2.1
-npm: 2.1.4
+tools:
+  maven: 3.3.9
+  jdk: 1.8.0_102-b14
+envs:
+  global:
+    variables:
+      test: Hello random %{(Math.abs(new java.util.Random().nextInt()) % 100000000 + 1).intValue()}
 flows:
   master:
     - parallel:
-      - (on master) ping 127.0.0.1 -n 20
-      - |
-        (on centos)
-        #!/bin/bash -xe
-        env
-        npm --version
-        node --version
-    - (on master) echo done
+      - (on master) ping localhost -n 30
+      - (on centos) sleep 50
+      - job: nested
+#    - parallel:
+#      - (on centos, noWorkspace) sleep 10
+#      - (on centos, noWorkspace) sleep 10
+#    - ws_snapshot: main
+#      excludes: target/**
+#    - parallel:
+#      - (on centos, exclusive):
+#        - ws_restore: main
+#        - echo ${test}
+#        - mvn clean package -B
+#      - (on centos, noWorkspace) sleep 10
   pr:
-    - call: master
+    - echo bla
