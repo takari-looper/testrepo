@@ -23,4 +23,4 @@ flows:
 #        - mvn clean package -B
 #      - (on centos, noWorkspace) sleep 10
   pr:
-    - call: master
+    - echo bla
